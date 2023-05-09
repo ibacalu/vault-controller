@@ -1,0 +1,59 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - vault.qts.cloud
+  resources:
+  - kubernetesauthbackendroles
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - vault.qts.cloud
+  resources:
+  - kubernetesauthbackendroles/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - vault.qts.cloud
+  resources:
+  - kubernetesauthbackendroles/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - vault.qts.cloud
+  resources:
+  - policies
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - vault.qts.cloud
+  resources:
+  - policies/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - vault.qts.cloud
+  resources:
+  - policies/status
+  verbs:
+  - get
+  - patch
+  - update

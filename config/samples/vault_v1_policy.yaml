@@ -1,0 +1,16 @@
+apiVersion: vault.qts.cloud/v1
+kind: Policy
+metadata:
+  labels:
+    app.kubernetes.io/name: policy
+    app.kubernetes.io/instance: policy-sample
+    app.kubernetes.io/part-of: vault-controller
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: vault-controller
+  name: policy-sample
+spec:
+  rules:
+    - path: "secrets/*"
+      capabilities:
+        - read
+        - list

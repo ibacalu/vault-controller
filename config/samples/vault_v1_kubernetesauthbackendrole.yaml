@@ -1,0 +1,17 @@
+apiVersion: vault.qts.cloud/v1
+kind: KubernetesAuthBackendRole
+metadata:
+  labels:
+    app.kubernetes.io/name: kubernetesauthbackendrole
+    app.kubernetes.io/instance: kubernetesauthbackendrole-sample
+    app.kubernetes.io/part-of: vault-controller
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: vault-controller
+  name: kubernetesauthbackendrole-sample
+spec:
+  boundServiceAccountNames: example-sa
+  boundServiceAccountNamespaces: default
+  policies:
+    - policy-sample
+  ttl: 1h
+  maxTTL: 24h
